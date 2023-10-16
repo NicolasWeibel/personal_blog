@@ -2,4 +2,4 @@ from django.urls import path
 
 from .views import *
 
-urlpatterns = []
+urlpatterns = [path("list", ListCategoriesView.as_view())]
