@@ -18,8 +18,8 @@ class Post(models.Model):
     slug = models.SlugField(max_length=255, unique=True)
     thumbnail = models.ImageField(upload_to=blog_thumbnail_directory)
 
-    excerpt = models.CharField(max_length=255)
-    description = RichTextField()
+    description = models.CharField(max_length=255)
+    content = RichTextField()
 
     time_read = models.IntegerField()
 
