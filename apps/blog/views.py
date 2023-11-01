@@ -5,8 +5,8 @@ from rest_framework import permissions
 
 from apps.category.models import Category
 
-from .models import Post
-from .serializers import PostListSerializer
+from .models import Post, ViewCount
+from .serializers import PostListSerializer, PostSerializer
 from .pagination import SmallSetPagination, MediumSetPagination, LargeSetPagination
 
 
@@ -61,4 +61,33 @@ class ListPostsByCategoryView(APIView):
         else:
             return Response(
                 {"error": "No posts found"}, status=status.HTTP_404_NOT_FOUND
+            )
+
+
+class PostDetailView(APIView):
+    permission_classes = (permissions.AllowAny,)
+
+    def get(self, request, slug, format=None):
+        if Post.objects.filter(slug=slug).exists():
+            post = Post.objects.get(slug=slug)
+            serializer = PostSerializer(post)
+
+            address = request.META.get("HTTP_X_FORWARDED_FOR")
+            if address:
+                ip = address.split(",")[-1].strip()
+            else:
+                ip = request.META.get("REMOTE_ADDR")
+
+            if not ViewCount.objects.filter(post=post, ip_address=ip):
+                view = ViewCount(post=post, ip_address=ip)
+                view.save()
+                post.views = post.get_view_count()
+                post.save()
+
+            print(post.views)
+
+            return Response({"post": serializer.data}, status=status.HTTP_200_OK)
+        else:
+            return Response(
+                {"error": "Post not found"}, status=status.HTTP_404_NOT_FOUND
             )

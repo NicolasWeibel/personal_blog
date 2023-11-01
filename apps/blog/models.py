@@ -32,7 +32,7 @@ class Post(models.Model):
         return self.title
 
     def get_view_count(self):
-        views = ViewCount.objects.filter(category=self).count()
+        views = ViewCount.objects.filter(post=self).count()
         return views
 
 
