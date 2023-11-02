@@ -1,5 +1,6 @@
 from ckeditor.fields import RichTextField
 from django.db import models
+from django.db.models.query import QuerySet
 from django.utils import timezone
 
 from apps.category.models import Category
@@ -14,6 +15,15 @@ class Post(models.Model):
     class Meta:
         ordering = ("-published",)
 
+    class PostObjects(models.Manager):
+        def get_queryset(self) -> QuerySet:
+            return super().get_queryset().filter(status="published")
+
+    options = (
+        ("draft", "Draft"),
+        ("published", "Published"),
+    )
+
     title = models.CharField(max_length=255)
     slug = models.SlugField(max_length=255, unique=True)
     thumbnail = models.ImageField(upload_to=blog_thumbnail_directory, max_length=500)
@@ -26,7 +36,12 @@ class Post(models.Model):
     published = models.DateTimeField(default=timezone.now)
     views = models.IntegerField(default=0, blank=True)
 
+    status = models.CharField(max_length=10, choices=options, default="draft")
+
     category = models.ForeignKey(Category, on_delete=models.PROTECT)
+
+    objects = models.Manager()  # default manager
+    post_objects = PostObjects()  # custom manager
 
     def __str__(self) -> str:
         return self.title
