@@ -2,6 +2,7 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
 from rest_framework import permissions
+from django.db.models.query_utils import Q
 
 from apps.category.models import Category
 
@@ -14,8 +15,8 @@ class BlogListView(APIView):
     permission_classes = (permissions.AllowAny,)
 
     def get(self, request, format=None):
-        if Post.objects.all().exists():
-            posts = Post.objects.all()
+        if Post.post_objects.all().exists():
+            posts = Post.post_objects.all()
 
             paginator = SmallSetPagination()
             results = paginator.paginate_queryset(posts, request)
@@ -42,7 +43,7 @@ class ListPostsByCategoryView(APIView):
                 {"error": "No category found"}, status=status.HTTP_404_NOT_FOUND
             )
 
-        posts = Post.objects.order_by("-published").all()
+        posts = Post.post_objects.order_by("-published").all()
 
         sub_categories = Category.objects.filter(parent=category)
         filtered_categories = [category]
@@ -68,8 +69,8 @@ class PostDetailView(APIView):
     permission_classes = (permissions.AllowAny,)
 
     def get(self, request, slug, format=None):
-        if Post.objects.filter(slug=slug).exists():
-            post = Post.objects.get(slug=slug)
+        if Post.post_objects.filter(slug=slug).exists():
+            post = Post.post_objects.get(slug=slug)
             serializer = PostSerializer(post)
 
             address = request.META.get("HTTP_X_FORWARDED_FOR")
@@ -84,10 +85,24 @@ class PostDetailView(APIView):
                 post.views = post.get_view_count()
                 post.save()
 
-            print(post.views)
-
             return Response({"post": serializer.data}, status=status.HTTP_200_OK)
         else:
             return Response(
                 {"error": "Post not found"}, status=status.HTTP_404_NOT_FOUND
             )
+
+
+class SearchBlogView(APIView):
+    permission_classes = (permissions.AllowAny,)
+
+    def get(self, request, format=None):
+        search_term = request.query_params.get("s")
+        matches = Post.post_objects.filter(
+            Q(title__icontains=search_term)
+            | Q(description__icontains=search_term)
+            | Q(category__name__icontains=search_term)
+        )
+        serializer = PostListSerializer(matches, many=True)
+        return Response(
+            {"filtered_posts": serializer.data}, status=status.HTTP_404_NOT_FOUND
+        )
