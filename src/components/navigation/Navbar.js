@@ -73,10 +73,10 @@ function Navbar() {
       data-scroll
       data-scroll-id="hey"
       id="navbar"
-      className="w-full py-6 top-0 transition duration-300 ease-in-out z-40 fixed"
+      className="w-full py-6 top-0 transition duration-500 ease-in-out z-40 fixed"
     >
-      <div className="px-4 sm:px-6">
-        <div className="-ml-4 -mt-2 hidden lg:flex flex-wrap items-center justify-between sm:flex-nowrap md:px-14 px-2">
+      <div className="px-2 xl:px-4">
+        <div className="-ml-4 -mt-2 hidden lg:flex flex-wrap items-center justify-between sm:flex-nowrap md:px-4 px-2">
           <Link to="/" className="ml-4 mt-2">
             <img
               src={
@@ -90,37 +90,37 @@ function Navbar() {
           <div className="ml-4 mt-2 flex-shrink-0">
             <NavLink
               to="/cases"
-              className="text-lg inline-flex font-semibold leading-6 text-gray-900 hover:border-b-2 hover:border-orange-500 transition duration-300 ease-in-out mx-4"
+              className="text-lg inline-flex font-semibold leading-6 text-gray-900 border-b-2 border-transparent hover:border-orange-500 transition duration-300 ease-in-out mx-4"
             >
               Cases
             </NavLink>
             <NavLink
               to="/services"
-              className="text-lg inline-flex font-semibold leading-6 text-gray-900 hover:border-b-2 hover:border-orange-500 transition duration-300 ease-in-out mx-4"
+              className="text-lg inline-flex font-semibold leading-6 text-gray-900 border-b-2 border-transparent hover:border-orange-500 transition duration-300 ease-in-out mx-4"
             >
               Services
             </NavLink>
             <NavLink
               to="/about-us"
-              className="text-lg inline-flex font-semibold leading-6 text-gray-900 hover:border-b-2 hover:border-orange-500 transition duration-300 ease-in-out mx-4"
+              className="text-lg inline-flex font-semibold leading-6 text-gray-900 border-b-2 border-transparent hover:border-orange-500 transition duration-300 ease-in-out mx-4"
             >
               About Us
             </NavLink>
             <NavLink
               to="/careers"
-              className="text-lg inline-flex font-semibold leading-6 text-gray-900 hover:border-b-2 hover:border-orange-500 transition duration-300 ease-in-out mx-4"
+              className="text-lg inline-flex font-semibold leading-6 text-gray-900 border-b-2 border-transparent hover:border-orange-500 transition duration-300 ease-in-out mx-4"
             >
               Careers
             </NavLink>
             <NavLink
               to="/blog"
-              className="text-lg inline-flex font-semibold leading-6 text-gray-900 hover:border-b-2 hover:border-orange-500 transition duration-300 ease-in-out mx-4"
+              className="text-lg inline-flex font-semibold leading-6 text-gray-900 border-b-2 border-transparent hover:border-orange-500 transition duration-300 ease-in-out mx-4"
             >
               Blog
             </NavLink>
             <NavLink
               to="/contact"
-              className="text-lg inline-flex font-semibold leading-6 text-gray-900 hover:border-b-2 hover:border-orange-500 transition duration-300 ease-in-out mx-4"
+              className="text-lg inline-flex font-semibold leading-6 text-gray-900 border-b-2 border-transparent hover:border-orange-500 transition duration-300 ease-in-out mx-4"
             >
               Contact
             </NavLink>
@@ -139,8 +139,8 @@ function Navbar() {
             </Link>
           </div>
         </div>
-        <div className="-ml-4 -mt-2 lg:hidden flex flex-wrap items-center justify-between sm:flex-nowrap md:px-14 px-2">
-          <Link to="/" className="ml-4 mt-2">
+        <div className="-ml-4 -mt-2 lg:hidden flex flex-wrap items-center justify-between sm:flex-nowrap md:px-4 px-2">
+          <Link to="/" className="ml-4 mt-3">
             <img
               src={
                 "https://bafybeiczl4dcxupma2zeyilkukfl4yge64axnhajd722wxgin62mtts6uy.ipfs.w3s.link/murkivamarketing.png"
@@ -156,13 +156,13 @@ function Navbar() {
                 <>
                   <Popover.Button
                     className={`
-                                ${open ? "" : "text-opacity-90"}
-                                focus:ring-none focus:outline-none`}
+                                  ${open ? "" : "text-opacity-90"}
+                                  focus:ring-none focus:outline-none`}
                   >
                     {open ? (
-                      <i className="bx bx-x text-4xl"></i>
+                      <i className="bx bx-x text-4xl mt-1"></i>
                     ) : (
-                      <i className="bx bx-menu text-4xl"></i>
+                      <i className="bx bx-menu text-4xl mt-1"></i>
                     )}
                   </Popover.Button>
 
