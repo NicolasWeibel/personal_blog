@@ -90,37 +90,37 @@ function Navbar() {
           <div className="ml-4 mt-2 flex-shrink-0">
             <NavLink
               to="/cases"
-              className="text-lg inline-flex font-medium leading-6 text-gray-900 hover:border-b-2 hover:border-orange-500 transition duration-300 ease-in-out mx-4"
+              className="text-lg inline-flex font-semibold leading-6 text-gray-900 hover:border-b-2 hover:border-orange-500 transition duration-300 ease-in-out mx-4"
             >
               Cases
             </NavLink>
             <NavLink
               to="/services"
-              className="text-lg inline-flex font-medium leading-6 text-gray-900 hover:border-b-2 hover:border-orange-500 transition duration-300 ease-in-out mx-4"
+              className="text-lg inline-flex font-semibold leading-6 text-gray-900 hover:border-b-2 hover:border-orange-500 transition duration-300 ease-in-out mx-4"
             >
               Services
             </NavLink>
             <NavLink
               to="/about-us"
-              className="text-lg inline-flex font-medium leading-6 text-gray-900 hover:border-b-2 hover:border-orange-500 transition duration-300 ease-in-out mx-4"
+              className="text-lg inline-flex font-semibold leading-6 text-gray-900 hover:border-b-2 hover:border-orange-500 transition duration-300 ease-in-out mx-4"
             >
               About Us
             </NavLink>
             <NavLink
               to="/careers"
-              className="text-lg inline-flex font-medium leading-6 text-gray-900 hover:border-b-2 hover:border-orange-500 transition duration-300 ease-in-out mx-4"
+              className="text-lg inline-flex font-semibold leading-6 text-gray-900 hover:border-b-2 hover:border-orange-500 transition duration-300 ease-in-out mx-4"
             >
               Careers
             </NavLink>
             <NavLink
               to="/blog"
-              className="text-lg inline-flex font-medium leading-6 text-gray-900 hover:border-b-2 hover:border-orange-500 transition duration-300 ease-in-out mx-4"
+              className="text-lg inline-flex font-semibold leading-6 text-gray-900 hover:border-b-2 hover:border-orange-500 transition duration-300 ease-in-out mx-4"
             >
               Blog
             </NavLink>
             <NavLink
               to="/contact"
-              className="text-lg inline-flex font-medium leading-6 text-gray-900 hover:border-b-2 hover:border-orange-500 transition duration-300 ease-in-out mx-4"
+              className="text-lg inline-flex font-semibold leading-6 text-gray-900 hover:border-b-2 hover:border-orange-500 transition duration-300 ease-in-out mx-4"
             >
               Contact
             </NavLink>
