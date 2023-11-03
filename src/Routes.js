@@ -9,6 +9,8 @@ import About from "containers/pages/About";
 import Careers from "containers/pages/Careers";
 import Blog from "containers/pages/Blog";
 import Contact from "containers/pages/Contact";
+import Category from "containers/pages/Category";
+import Search from "containers/pages/Search";
 
 function AnimatedRoutes() {
   const location = useLocation();
@@ -26,6 +28,8 @@ function AnimatedRoutes() {
         <Route path="/about-us" element={<About />} />
         <Route path="/careers" element={<Careers />} />
         <Route path="/blog" element={<Blog />} />
+        <Route path="/search/:term" element={<Search />} />
+        <Route path="/category/:slug" element={<Category />} />
         <Route path="/contact" element={<Contact />} />
       </Routes>
     </AnimatePresence>

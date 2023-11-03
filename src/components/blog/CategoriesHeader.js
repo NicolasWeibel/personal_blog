@@ -12,8 +12,10 @@ function CategoriesHeader({ categories }) {
   };
   const onSubmit = (e) => {
     e.preventDefault();
-    setTimeout(() => navigate("/s=" + term), 0.2);
-    setTerm("");
+    if (term) {
+      setTimeout(() => navigate("/search/" + term), 0.2);
+      setTerm("");
+    }
   };
 
   return (
@@ -57,9 +59,12 @@ function CategoriesHeader({ categories }) {
           onSubmit={(e) => onSubmit(e)}
           className="relative col-span-3 mr-8"
         >
-          <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+          <button
+            type="submit"
+            className="absolute inset-y-0 left-0 flex items-center pl-3"
+          >
             <i className="bx bx-search-alt text-xl text-gray-800"></i>
-          </div>
+          </button>
           <input
             id="search"
             name="search"
