@@ -42,7 +42,7 @@ export default function blog(state = initialState, action) {
     case GET_BLOG_LIST_SUCCESS:
       return {
         ...state,
-        blog_list_category: payload.results.posts,
+        blog_list: payload.results.posts,
         count: payload.count,
         next: payload.next,
         previous: payload.previous,
@@ -50,7 +50,7 @@ export default function blog(state = initialState, action) {
     case GET_BLOG_LIST_FAIL:
       return {
         ...state,
-        blog_list_category: null,
+        blog_list: null,
         count: null,
         next: null,
         previous: null,
