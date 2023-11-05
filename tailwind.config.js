@@ -10,6 +10,8 @@ module.exports = {
     boxShadow: {
       navbar:
         "0px 10px 8px 0px rgba(3, 3, 4, 0.03), 0 1px 2px -1px rgba(3, 3, 4, 0.03)",
+      card: "0px 0px 20px 0px rgba(0, 0, 0, 0.1)",
+      "2xl": "0 0px 40px 0px rgba(0, 0, 0, 0.1)",
     },
     screens: {
       sm: "640px",
@@ -18,7 +20,7 @@ module.exports = {
       md: "768px",
       // => @media (min-width: 768px) { ... }
 
-      lg: "1090px",
+      lg: "1103px",
       // => @media (min-width: 1024px) { ... }
 
       xl: "1280px",
