@@ -1,5 +1,4 @@
 import { connect } from "react-redux";
-import logo_boomslag from "assets/images/boomslag-black.png";
 
 function Footer() {
   const navigation = {
@@ -95,7 +94,13 @@ function Footer() {
       <div className="mx-auto max-w-full py-12 px-4 sm:px-6 lg:py-16 lg:px-8">
         <div className="xl:grid xl:grid-cols-3 xl:gap-8">
           <div className="space-y-8 xl:col-span-1">
-            <img src={logo_boomslag} width={140} alt="Logo" />
+            <img
+              src={
+                "https://bafybeie3dkjdydulam4igwx2hwaepkkyugze2z7bpohekdi2maqrgaaegq.ipfs.w3s.link/idealogo.png"
+              }
+              width={60}
+              alt="Logo"
+            />
             <p className="text-base text-gray-500">
               Making the world a better place through constructing elegant
               hierarchies.
@@ -186,7 +191,7 @@ function Footer() {
         </div>
         <div className="mt-12 border-t border-gray-200 pt-8">
           <p className="text-base text-gray-400 xl:text-center">
-            &copy; 2020 Your Company, Inc. All rights reserved.
+            &copy; 2020 Murkiva, Inc. All rights reserved.
           </p>
         </div>
       </div>
