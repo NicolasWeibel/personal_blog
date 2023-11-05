@@ -11,7 +11,7 @@ import {
 } from "redux/actions/blog/blog";
 import CategoriesHeader from "components/blog/CategoriesHeader";
 import { useParams } from "react-router-dom";
-// import BlogList from "components/blog/BlogList";
+import BlogList from "components/blog/BlogList";
 
 function Category({
   get_categories,
@@ -79,11 +79,11 @@ function Category({
           {/* We've used 3xl here, but feel free to try other max-widths based on your needs */}
           <div className="mx-auto max-w-6xl my-10">
             {/* Content goes here */}
-            {/* <BlogList
+            <BlogList
               posts={posts && posts}
               get_blog_list_page={get_blog_list_category_page}
               count={count && count}
-            /> */}
+            />
           </div>
         </div>
       </div>
