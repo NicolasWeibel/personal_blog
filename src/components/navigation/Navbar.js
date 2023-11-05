@@ -73,7 +73,7 @@ function Navbar() {
       data-scroll
       data-scroll-id="hey"
       id="navbar"
-      className="w-full py-6 top-0 transition duration-500 ease-in-out z-40 fixed"
+      className="w-full py-6 top-0 transition duration-300 ease-in-out z-40 fixed"
     >
       <div className="px-2 xl:px-4">
         <div className="-ml-4 -mt-2 hidden lg:flex flex-wrap items-center justify-between sm:flex-nowrap md:px-4 px-2">
