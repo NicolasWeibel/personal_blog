@@ -26,7 +26,7 @@ function BlogCardHorizontal({ data, index }) {
               <img
                 id={index}
                 className="h-64 lg:w-96 w-full object-cover rounded"
-                src={`http://localhost:8000${data.thumbnail}`}
+                src={data.thumbnail}
                 alt=""
               />
             </figure>
